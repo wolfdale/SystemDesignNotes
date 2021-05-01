@@ -25,3 +25,36 @@ Condensed Notes/Tips on System design
 >**Gateways** - API gateway - Act as Single entry-point into a collection of underlying services, which we call a domain.
 >**Extension Arch** - For each domain to be agnostic to other domains, Allows domains to extend logic. Act as Provider or Plugin pattern with an interface defined on a service-by-service basis.
 
+[Microservice Architecture at Medium](https://medium.engineering/microservice-architecture-at-medium-9c33805eb74f)
+> Medium 2012 -> Monolithic Node.js APP + Satellite services.
+> Adopted microservices in 2018.
+> Medium idea of Microservices - Multiple loosely coupled services working together. Each service focuses on a single purpose and has a high cohesion of related behaviors and data.
+> For medium Node.js monolithic app became bottleneck (Reasons I/O heavy works, deployment problems in-case of bad commit, complexity designing new features, scaling (system became more resource hungry), unable to try new technologies due one giant monolithic app)
+> 
+> **7 strategies that helped Medium in early stage of adoption** 
+> - **Build new services with clear value** 	
+>  Avoid massive rewrite.
+>  New service must align with core product, technology & engineering value.
+> - **Monolithic persistent storage considered harmful** 	
+> Must not share database with multiple microservices.
+> One service -> One specific type of data.
+> Requesting data via APIs.
+> - **Decouple "Building a service" and "Running services"** 	
+> Containerization, container-orchestration, service mesh, application performance monitoring allow decoupling of "Running service" from "building service".
+> Medium uses Istio & Envoy proxy (sidecar design pattern). 	
+> Medium uses GRPC (in contras of REST + JSON over HTTP).
+> Medium uses (moving to) Kubernetes.
+> - **Thorough & consistent observability** 	
+>  Observability includes logging, performance tracking, metrics, dashboards, alerting, and is super critical for the microservice architecture to succeed. 	
+>   Medium -> uses DataDog dashboards.
+> - **Not Every New Service Needs to be Built from Scratch**
+> - **Respect Failures Because They Will Happen**
+> - **Avoid Microservice Syndromes from Day One** 	
+>  Bad Microservices - Poorly Modeled, scattered tech stack, High coupling  	between
+> services, lack of observability etc.
+> 
+> Should We Stop Building Monolithic Services? NO.
+> Small teams -> Monolithic
+> Early stage startup -> Monolithic
+> Low scale -> Monolithic
+> Go for Microservices in long Haul.
