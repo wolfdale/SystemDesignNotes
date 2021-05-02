@@ -58,3 +58,16 @@ Condensed Notes/Tips on System design
 > Early stage startup -> Monolithic
 > Low scale -> Monolithic
 > Go for Microservices in long Haul.
+
+[Storing hundreds of millions of simple key-value pairs in Redis at Instagram](https://instagram-engineering.com/storing-hundreds-of-millions-of-simple-key-value-pairs-in-redis-1091ae80f74c)
+> Problem  Need to store PhotoID - UserID mapping
+> 
+> Goals
+> - Quick key lookup
+> - Space optimize (to store everythin within on EC2)
+> - Persistence storage, High Availibility
+> - Seeamless integration with existing infra.
+> 
+> Strategy
+> - SQL was out of option 
+> - Redis is choosen for task (Master-slave arch (HA), Quick get/set methods)
